@@ -1,3 +1,14 @@
+# aula-cursodev
+
+Projeto de aula do Curso.dev.
+
+## Stack
+
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 
