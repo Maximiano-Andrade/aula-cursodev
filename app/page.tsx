@@ -3,11 +3,17 @@ import ConfettiOnLoad from "./confetti";
 async function getPublishedContentsTotal() {
   const response = await fetch(
     "https://www.tabnews.com.br/api/v1/contents?per_page=1&strategy=new",
-    { cache: "no-store" },
+    { next: { revalidate: 60 } },
   );
 
+  if (!response.ok) {
+    throw new Error(`Failed to fetch published contents total: ${response.status}`);
+  }
+
   const total = response.headers.get("X-Pagination-Total-Rows");
-  return Number(total ?? 0);
+  const parsedTotal = Number(total);
+
+  return Number.isFinite(parsedTotal) ? parsedTotal : 0;
 }
 
 export default async function Page() {

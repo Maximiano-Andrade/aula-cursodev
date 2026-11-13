@@ -1,7 +1,9 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
-import Confetti from "react-confetti";
+
+const Confetti = dynamic(() => import("react-confetti"), { ssr: false });
 
 export default function ConfettiOnLoad() {
   const [size, setSize] = useState({ width: 0, height: 0 });
