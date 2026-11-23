@@ -7,7 +7,9 @@ async function getPublishedContentsTotal() {
   );
 
   if (!response.ok) {
-    throw new Error(`Failed to fetch published contents total: ${response.status}`);
+    throw new Error(
+      `Failed to fetch published contents total: ${response.status}`,
+    );
   }
 
   const total = response.headers.get("X-Pagination-Total-Rows");
